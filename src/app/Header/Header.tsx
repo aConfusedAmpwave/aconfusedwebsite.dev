@@ -22,7 +22,7 @@ export default function Header () {
         <header>
             <Link href="/">
                 <img
-                    src = "/public/Media Library/tempLogo.png"
+                    src = "/Media Library/tempLogo.png"
                     alt = "Temporary Logo until logo completed"
                     width = {32}
                     height = {32}
