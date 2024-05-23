@@ -2,16 +2,17 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 //Function to create links to the other pages on the site
 function PageLink({name, path}: {name: string, path: string}) {
-    return <h2><Link href = {path}>{name}</Link></h2>
+    return <h2 key={path} className="hover:text-peach"><Link href = {path}>{name}</Link></h2>
 }
 
 export default function Header () {
 
     const pageLinks = <>
-        <PageLink name = {"Home"} path = {"/Home"}/>
+        <PageLink name = {"Home"} path = {"/"}/>
         <PageLink name = {"Projects"} path = {"/Projects"}/>
         <PageLink name = {"About"} path = {"/About"}/>
         <PageLink name = {"Contact"} path = {"/Contact"}/>
@@ -19,21 +20,19 @@ export default function Header () {
     
     //Display the logo of the site in the left corner, followed by each page link (Home, Projects, About, Contact)
     return <>
-        <header>
+        <header className = "bg-tshirt text-pearl flex flex-row space-x-4 space-y-3" >
             <Link href="/">
-                <img
+                <Image
                     src = "/Media Library/tempLogo.png"
                     alt = "Temporary Logo until logo completed"
-                    width = {32}
-                    height = {32}
+                    width = {50}
+                    height = {50}
                 />
             </Link>
 
-            <div>
-                <nav>
-                    {pageLinks}
-                </nav>
-            </div>
+            <nav className = "flex flex-row space-x-4 ">
+                {pageLinks}
+            </nav>
         </header>
     </>
 }
