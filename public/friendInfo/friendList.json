@@ -1,0 +1,19 @@
+{
+    "Friends": [
+        {
+            "name": "Julia",
+            "badge": "/friendInfo/tags/juliaTag.png",
+            "link": "https://juliaviolet.dev"
+        },
+        {
+            "name": "88x31",
+            "badge": "/friendInfo/tags/88x31Tag.png",
+            "link": "https://eightyeightthirty.one"
+        },
+        {
+            "name": "Aleia",
+            "badge": "/friendInfo/tags/aleiaTag.png",
+            "link": "https://aconfusedwebsite.dev/"
+        }
+    ]
+}
