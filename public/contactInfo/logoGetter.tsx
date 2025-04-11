@@ -6,15 +6,15 @@ import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
 
 config.autoAddCss = false
 
-const logoLookup = {
-    "Instagram": faInstagram,
-    "Discord": faDiscord,
-    "Bluesky": faBluesky,
-    "Github": faGithub,
-    "Linkedin": faLinkedin,
-    "Email": faEnvelope,
-}
+const logoLookup: Map<string, any> = new Map([
+    ["Instagram", faInstagram],
+    ["Discord", faDiscord],
+    ["Bluesky", faBluesky],
+    ["Github", faGithub],
+    ["Linkedin", faLinkedin],
+    ["Email", faEnvelope],
+])
 
 export default function getLogo(id: string): JSX.Element {
-    return <FontAwesomeIcon icon={logoLookup[id]} className="fa-logo"/>
+    return <FontAwesomeIcon icon={logoLookup.get(id)} className="fa-logo"/>
 }
