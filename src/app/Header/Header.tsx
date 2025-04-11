@@ -6,7 +6,7 @@ import Image from "next/image"
 
 //Function to create links to the other pages on the site
 function PageLink({name, path}: {name: string, path: string}) {
-    return <h2 key={path} className="hover:text-peach"><Link href = {path}>{name}</Link></h2>
+    return <h2 key={path} className="text-xl hover:text-peach"><Link href = {path}>{name}</Link></h2>
 }
 
 export default function Header () {
@@ -20,7 +20,7 @@ export default function Header () {
     
     //Display the logo of the site in the left corner, followed by each page link (Home, Projects, About, Contact)
     return <>
-        <header className = "bg-tshirt text-pearl flex flex-row space-x-4 space-y-3" >
+        <header className = "bg-tshirt text-pearl flex flex-row space-x-4 space-y-3 pt-2 pb-2" >
             <Link href="/">
                 <Image
                     src = "/Media Library/tempLogo.png"

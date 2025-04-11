@@ -1,40 +1,39 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import getLogo from "@/public/contactInfo/logoGetter"
 
-function ContactTile ({typeName, imagePath, imageAlt, platformUsername, mediaLink}: {typeName: string, imagePath: string, imageAlt: string, platformUsername: string, mediaLink: string}) {
-    return <div>
-        <Link href = {mediaLink}>
-        <Image
-        src = {imagePath}
-        alt = {imageAlt}
-        width = {32}
-        height = {32}
-        />
-        <h2>{typeName}</h2>
-        <h3>{platformUsername}</h3>
+import contactInfo from "@/public/contactInfo/contactList.json" assert {type: 'json'}
+import { babelIncludeRegexes } from "next/dist/build/webpack-config";
+
+function ContactTile ({service, username, logo, link}: {service: string, username: string, logo: string, link: string}) {
+    let Logo = getLogo(logo)
+
+    return <div className = "bg-tshirt hover:bg-peach p-4 m-2.5 border-solid border-2 rounded-xl border-tshirt">
+        <Link href = {link}>
+            <div className = "flex flex-cols-2">
+                <h1 className = "text-3xl pr-2">{Logo}</h1>
+                <div>
+                    <h1 className ="text-xl font-bold">{service}</h1>
+                    <h2>{username}</h2>
+                </div>
+            </div>
         </Link>
     </div>
 }
 
 //List of contact information including social media (excluding tumblr and reddit) and including email. logos for each type of contact on the left side
 export default function Contact () {
-    const contactTiles = <>
-        <ContactTile typeName = {"Twitter"} imagePath = {"/public/Media Library/"} imageAlt = {"Minimalistic Twitter Logo"} platformUsername = {"@aConfusedAmp"} mediaLink = {"https://twitter.com/aConfusedAmp"}/>
-        <ContactTile typeName = {"Instagram"} imagePath = {"/public/Media Library/"} imageAlt = {"Minimalistic Instagram Logo"} platformUsername = {"@aConfusedAmpwave"} mediaLink = {"https://www.instagram.com/aconfusedampwave/"}/>
-        <ContactTile typeName = {"Discord"} imagePath = {"/public/Media Library/"} imageAlt = {"Minimalistic Discord Logo"} platformUsername = {"aConfusedAmpwave"} mediaLink = {"https://discord.com/users/738305604665213048"}/>
-        <ContactTile typeName = {"Facebook"} imagePath = {"/public/Media Library/"} imageAlt = {"Minimalistic Facebook Logo"} platformUsername = {"Aleia Gerhardt"} mediaLink = {"https://www.facebook.com/aConfusedAmpwave"}/>
-        <ContactTile typeName = {"Bluesky"} imagePath = {"/public/Media Library/"} imageAlt = {"Minimalistic Bluesky Logo"} platformUsername = {"aConfusedAmp"} mediaLink = {"https://bsky.app/profile/aconfusedampwave.bsky.social"}/>
-        <ContactTile typeName = {"Github"} imagePath = {"/public/Media Library/"} imageAlt = {"Minimalistic Github Logo"} platformUsername = {"aConfusedAmpwave"} mediaLink = {"https://github.com/aConfusedAmpwave"}/>
-        <ContactTile typeName = {"Email"} imagePath = {"/public/Media Library/"} imageAlt = {"Minimalistic G-Mail Logo"} platformUsername = {"aleiatgerhardt@gmail.com"} mediaLink = {"mailto:aleiatgerhardt@gmail.com"}/>
-    </>
+    let tiles: JSX.Element[] = [];
 
-    return <>
-        <h2>Ways to Contact Me</h2>
-        <div>
-            <nav>
-                {contactTiles}
-            </nav>
-        </div>
-    </>
+    for(let i = 0; i < contactInfo.Contact.length; i++) {
+        tiles[i] = ContactTile(contactInfo.Contact[i]);
+    }
+
+    return <section className = "text-pearl">
+            <h2 className = "text-3xl font-bold py-4 content-center text-center">Ways to Contact Me</h2>
+            <div className = "grid grid-cols-1 text-left pl-80 pr-80 mr-5 pb-4">
+                {tiles}
+            </div>
+    </section>
 }

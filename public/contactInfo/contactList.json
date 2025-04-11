@@ -1,0 +1,40 @@
+{
+    "Contact" : [
+        {
+            "service": "Instagram",
+            "username": "aconfusedampwave",
+            "logo": "Instagram",
+            "link": "https://www.instagram.com/aconfusedampwave/"
+        },
+        {
+            "service": "Discord",
+            "username": "aconfusedampwave",
+            "logo": "Discord",
+            "link": "https://discord.com/users/738305604665213048"
+        },
+        {
+            "service": "Bluesky",
+            "username": "aconfusedampwave.bsky.social",
+            "logo": "Bluesky",
+            "link": "https://bsky.app/profile/aconfusedampwave.bsky.social"
+        },
+        {
+            "service": "Github",
+            "username": "aConfusedAmpwave",
+            "logo": "Github",
+            "link": "https://github.com/aConfusedAmpwave"
+        },
+        {
+            "service": "LinkedIn",
+            "username": "Aleia Gerhardt",
+            "logo": "Linkedin",
+            "link": "https://www.linkedin.com/in/aleia-gerhardt"
+        },
+        {
+            "service": "Email",
+            "username": "aleiatgerhardt@gmail.com",
+            "logo": "Email",
+            "link": "mailto:aleiatgerhardt@gmail.com"
+        }
+    ]
+}

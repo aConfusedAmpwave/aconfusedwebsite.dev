@@ -36,14 +36,14 @@ export default function Footer () {
     </>
 
     const contactLinks = <>
-        <SubLink name = {"Twitter"} path = {""}/>
+        <SubLink name = {"Bluesky"} path = {""}/>
         <SubLink name = {"Instagram"} path = {""}/>
         <SubLink name = {"Github"} path = {""}/>
     </>
 
     return <>
 
-        <footer className = "bg-tshirt text-pearl">
+        <footer className = "bg-tshirt text-pearl pt-2">
             <div className = "flex flex-row justify-end">
                 <div className = "flex flex-col content-end text-right pl-20 mr-5">
                     <PageLink name = {"Home"} path = {"/"}/>
