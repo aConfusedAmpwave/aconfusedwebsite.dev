@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import {  faInstagram, faDiscord, faBluesky, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope, faFile} from '@fortawesome/free-solid-svg-icons'
 
 config.autoAddCss = false
 
@@ -13,6 +13,7 @@ const logoLookup: Map<string, any> = new Map([
     ["Github", faGithub],
     ["Linkedin", faLinkedin],
     ["Email", faEnvelope],
+    ["Resume", faFile]
 ])
 
 export default function getLogo(id: string): JSX.Element {
