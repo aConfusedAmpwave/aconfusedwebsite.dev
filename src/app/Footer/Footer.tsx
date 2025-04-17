@@ -12,8 +12,8 @@ function SubLink({name, path}: {name: string, path: string}) {
     return <h2 key={path} className="text-sm hover:text-peach pl-2"><Link href = {path}>{name}</Link></h2>
 }
 
-function FriendTag({badge, link}: {badge: string, link: string}) {
-    return <a className = "p-1" href = {link}><img src = {badge} height = {31} width = {88}/></a>
+function FriendTag({badge, link, idx}: {badge: string, link: string, idx: number}) {
+    return <a className = "p-1" href = {link} key = {idx}><img src = {badge} height = {31} width = {88}/></a>
 }
 
 //Tabs for Home, About, Projects, and Contact with sublinks to categories in them. Friends list on the side with the 88x31 for each of them.
@@ -21,7 +21,7 @@ export default function Footer () {
     let tags: JSX.Element[] = [];
 
     for (let i = 0; i < friendList.Friends.length; i++) {
-        tags[i] = FriendTag(friendList.Friends[i]);
+        tags[i] = FriendTag({idx: i, ...friendList.Friends[i]});
     }
 
     const projectLinks = <>
@@ -32,13 +32,13 @@ export default function Footer () {
 
     const aboutLinks = <>
         <SubLink name = {"Bio"} path = {""}/>
-        <SubLink name = {"Resume"} path = {""}/>
+        <SubLink name = {"Resume"} path = {"aleiaResume.pdf"}/>
     </>
 
     const contactLinks = <>
-        <SubLink name = {"Bluesky"} path = {""}/>
-        <SubLink name = {"Instagram"} path = {""}/>
-        <SubLink name = {"Github"} path = {""}/>
+        <SubLink name = {"Bluesky"} path = {"https://bsky.app/profile/aconfusedwebsite.dev"}/>
+        <SubLink name = {"Instagram"} path = {"https://www.instagram.com/aconfusedampwave/"}/>
+        <SubLink name = {"Discord"} path = {"https://discord.com/users/738305604665213048"}/>
     </>
 
     return <>
@@ -67,7 +67,7 @@ export default function Footer () {
                     </div>
                 </div>
                 <div className = "flex flex-col content-end text-center pl-20 mr-5">
-                    <h2>Friends</h2>
+                    <h2>88x31 Tags</h2>
                     <div className ="grid grid-cols-2">
                         {tags}
                     </div>

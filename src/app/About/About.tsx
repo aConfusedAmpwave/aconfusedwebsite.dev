@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import AboutMe from "@/public/aboutInfo/AboutMe.mdx"
 import getLogo from "@/public/contactInfo/logoGetter"
 
 function ResumeTile ({fileName, fileLink, fileLogo}: {fileName: string, fileLink: string, fileLogo: string}) {
@@ -18,6 +19,7 @@ function ResumeTile ({fileName, fileLink, fileLogo}: {fileName: string, fileLink
     </div>
 }
 
+
 //Short bio about myself, link to my resume at the bottom.
 export default function About () {
     const resumeButton = <>
@@ -26,8 +28,21 @@ export default function About () {
 
     return <section className = "text-pearl">
             <h2 className = "text-3xl font-bold py-4 content-center text-center">About Me</h2>
-            <div className = "grid grid-cols-1 text-left pl-80 pr-80 mr-5 pb-4">
-                {resumeButton}
+            <div className = "grid grid-cols-1 pl-80 pr-80 mr-5 pb-4">
+                <div className = "bg-tshirt p-4 m-2.5 border-solid border-2 rounded-xl border-tshirt text-right">
+                    <div className = "float-left">
+                        <Image
+                            src = "/Media Library/aleiaHeadshotUpdated-792x792.jpg"
+                            alt = "Headshot of Aleia Gerhardt"
+                            width = {700}
+                            height = {700}
+                        />
+                    </div>
+                    <AboutMe className = "float-right"/>
+                </div>
+                <div className = "text-left">
+                    {resumeButton}
+                </div>
             </div>
     </section>
 }

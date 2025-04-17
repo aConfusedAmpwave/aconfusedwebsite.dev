@@ -6,10 +6,10 @@ import getLogo from "@/public/contactInfo/logoGetter"
 import contactInfo from "@/public/contactInfo/contactList.json" assert {type: 'json'}
 import { babelIncludeRegexes } from "next/dist/build/webpack-config";
 
-function ContactTile ({service, username, logo, link}: {service: string, username: string, logo: string, link: string}) {
+function ContactTile ({service, username, logo, link, idx}: {service: string, username: string, logo: string, link: string, idx: number}) {
     let Logo = getLogo(logo)
 
-    return <div className = "bg-tshirt hover:bg-peach p-4 m-2.5 border-solid border-2 rounded-xl border-tshirt">
+    return <div className = "bg-tshirt hover:bg-peach p-4 m-2.5 border-solid border-2 rounded-xl border-tshirt" key = {idx}>
         <Link href = {link}>
             <div className = "flex flex-cols-2">
                 <h1 className = "text-3xl pr-2">{Logo}</h1>
@@ -27,7 +27,7 @@ export default function Contact () {
     let tiles: JSX.Element[] = [];
 
     for(let i = 0; i < contactInfo.Contact.length; i++) {
-        tiles[i] = ContactTile(contactInfo.Contact[i]);
+        tiles[i] = ContactTile({idx: i, ...contactInfo.Contact[i]});
     }
 
     return <section className = "text-pearl">

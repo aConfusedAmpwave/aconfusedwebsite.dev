@@ -34,7 +34,11 @@ module.exports = {
       gunmetal: '#5f5f5f',
       tshirt: '#334f5a',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'aleiaHand': "url('/Media Library/aleia_hand.png')",
+      }
+    },
   },
   plugins: [],
 }
