@@ -29,13 +29,13 @@ export default function About () {
     return <section className = "text-pearl">
             <h2 className = "text-3xl font-bold py-4 content-center text-center">About Me</h2>
             <div className = "grid grid-cols-1 pl-80 pr-80 mr-5 pb-4">
-                <div className = "bg-tshirt p-4 m-2.5 border-solid border-2 rounded-xl border-tshirt text-right">
+                <div className = "bg-tshirt p-4 m-2.5 border-solid border-2 rounded-xl border-tshirt text-3xl">
                     <div className = "float-left">
                         <Image
                             src = "/Media Library/aleiaHeadshotUpdated-792x792.jpg"
                             alt = "Headshot of Aleia Gerhardt"
-                            width = {700}
-                            height = {700}
+                            width = {500}
+                            height = {500}
                         />
                     </div>
                     <AboutMe className = "float-right"/>
